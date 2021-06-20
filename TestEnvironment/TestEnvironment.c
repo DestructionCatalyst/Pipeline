@@ -1,4 +1,10 @@
-#include "TestPack.h"
+﻿// TestEnvironment.cpp : Определяет функции для статической библиотеки.
+//
+
+#include "pch.h"
+#include "framework.h"
+
+#include "TestEnvironment.h"
 
 Test CreateTest(const char* name, void* (*testFunction)()) {
     Test t;
@@ -19,19 +25,19 @@ SimpleTestResult* CreateTestResult(int exitCode, const char* comment) {
 }
 
 TestPack* CreateTestPack(const char* name, int testCount, ...) {
-	TestPack* testPack = (TestPack*) malloc(sizeof(TestPack));
+    TestPack* testPack = (TestPack*)malloc(sizeof(TestPack));
 
     testPack->name = name;
-	testPack->testCount = testCount;
-	testPack->tests = (Test*)malloc(sizeof(Test) * testCount);
+    testPack->testCount = testCount;
+    testPack->tests = (Test*)malloc(sizeof(Test) * testCount);
 
-    va_list testFunctions;         
-    va_start(testFunctions, testCount);    
+    va_list testFunctions;
+    va_start(testFunctions, testCount);
     for (int i = 0; i < testCount; i++)
     {
-        testPack->tests[i] = va_arg(testFunctions, Test);  
+        testPack->tests[i] = va_arg(testFunctions, Test);
     }
-    va_end(testFunctions); 
+    va_end(testFunctions);
 
     return testPack;
 }
@@ -44,7 +50,7 @@ void RunTests(TestPack* testPack) {
 
     for (int i = 0; i < testPack->testCount; i++)
     {
-        SimpleTestResult* res = (SimpleTestResult*) testPack->tests[i].testFunction();
+        SimpleTestResult* res = (SimpleTestResult*)testPack->tests[i].testFunction();
 
         if (res->exitCode == 0) {
             printf("%s - passed\n", testPack->tests[i].name);

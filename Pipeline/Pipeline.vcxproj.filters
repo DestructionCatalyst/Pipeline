@@ -39,9 +39,6 @@
     <ClCompile Include="Test.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="TestPack.c">
-      <Filter>TestEnvironment\Sources</Filter>
-    </ClCompile>
     <ClCompile Include="Node.c">
       <Filter>DataStructures\Sources</Filter>
     </ClCompile>
@@ -52,12 +49,6 @@
   <ItemGroup>
     <ClInclude Include="Test.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TestPack.h">
-      <Filter>TestEnvironment\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Assertions.h">
-      <Filter>TestEnvironment\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>DataStructures\Headers</Filter>

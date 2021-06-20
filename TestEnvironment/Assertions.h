@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TestPack.h"
+#include "TestEnvironment.h"
 
 #define assert_equals(a, b, comm) {if ((a)!=(b)) return CreateTestResult(1, (comm));};
 
