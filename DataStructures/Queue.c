@@ -1,3 +1,6 @@
+#include "pch.h"
+#include "framework.h"
+
 #include "Queue.h"
 
 Queue CreateQueue() {

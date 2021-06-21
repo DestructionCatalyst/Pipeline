@@ -1,3 +1,6 @@
+#include "pch.h"
+#include "framework.h"
+
 #include "Node.h"
 
 Node* CreateNode(void* content, Node* next) {

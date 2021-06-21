@@ -4,6 +4,7 @@
 
 #include "Node.h"
 
+//Don't touch the contents with your dirty hands, use functions
 typedef struct Queue {
 	Node* start;
 	Node* end;
