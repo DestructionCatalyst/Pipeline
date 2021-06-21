@@ -29,7 +29,7 @@ void* TestNode() {
 	while (cur != NULL) {
 
 		assert_equals(*(int*)cur->content, i, "List content is corrupted");
-		
+
 		cur = cur->next;
 		++i;
 	}

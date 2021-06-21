@@ -1,16 +1,9 @@
-#include "Test.h"
+#include <stdio.h>
 
 
 int main() {
-	
-	//testNode();
 
-	TestPack* baseTests = CreateTestPack("Tests of the core", 2, 
-		CreateTest("Linked list node test", TestNode),
-		CreateTest("Queue test", TestQueue)
-	);
-
-	RunTests(baseTests);
+	printf("Hello world\n");
 
 	return 0;
 }
