@@ -9,10 +9,13 @@
 #include "Queue.h"
 
 #include "StringHashFunction.h"
+#include "HashTable.h"
 
 
 void* TestNode();
 
 void* TestQueue();
+
+void* TestHashFunction();
 
 void* TestHashTable();

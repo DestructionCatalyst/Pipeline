@@ -80,7 +80,7 @@ void* TestQueue() {
 	pass_test;
 }
 
-void* TestHashTable() {
+void* TestHashFunction() {
 	
 	const char* str1 = "Hello World!";
 	const char* str2 = "Test Test";
@@ -89,4 +89,14 @@ void* TestHashTable() {
 	assert_equals(65, HashFunctionHorner(str2, 128), "Hash function is inconsistent");
 
 	pass_test;
+}
+
+void* TestHashTable() {
+	HashTable table = CreateHashTable(8);
+
+	assert_equals(table.size, 8, "Hash table creation error");
+	assert_equals(table.stored, 0, "Hash table creation error");
+	assert_equals(table.collisionCount, 0, "Hash table creation error");
+
+	skip_test;
 }
