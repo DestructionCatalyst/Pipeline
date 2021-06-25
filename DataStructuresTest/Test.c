@@ -79,3 +79,14 @@ void* TestQueue() {
 
 	pass_test;
 }
+
+void* TestHashTable() {
+	
+	const char* str1 = "Hello World!";
+	const char* str2 = "Test Test";
+
+	assert_equals(59, HashFunctionHorner(str1, 64), "Hash function is inconsistent");
+	assert_equals(65, HashFunctionHorner(str2, 128), "Hash function is inconsistent");
+
+	pass_test;
+}
