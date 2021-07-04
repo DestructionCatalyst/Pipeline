@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "Node.h"
 #include "TestEnvironment.h"

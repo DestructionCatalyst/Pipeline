@@ -98,5 +98,39 @@ void* TestHashTable() {
 	assert_equals(table.stored, 0, "Hash table creation error");
 	assert_equals(table.collisionCount, 0, "Hash table creation error");
 
-	skip_test;
+	int a[10];
+	for (int i = 0; i < 10; i++)
+	{
+		a[i] = i + 1;
+	}
+
+	assert_equals(Add(&table, "item1", a), 1, "Error adding new item");
+
+	assert_equals(
+		*(int*)(((KeyValuePair*)table.nodes[HashFunctionHorner("item1", 8)]->content)->value),
+		1, "New item not found in place");
+
+	assert_equals(Add(&table, "item1", a), 0, "Duplicate keys not detected");
+
+	assert_equals(*(int*)Find(&table, "item1"), 1, "Error finding item");
+	assert_equals(Find(&table, "item2"), NULL, "Error identifying non-existance of item");
+
+	assert_equals(Add(&table, "item2", a + 1), 1, "Error adding new item");
+	assert_equals(Add(&table, "item3", a + 2), 1, "Error adding new item");
+	assert_equals(Add(&table, "item4", a + 3), 1, "Error adding new item");
+	assert_equals(Add(&table, "item5", a + 4), 1, "Error adding new item");
+	assert_equals(Add(&table, "item6", a + 5), 1, "Error adding new item");
+	assert_equals(Add(&table, "item7", a + 6), 1, "Error adding new item");
+	assert_equals(Add(&table, "item8", a + 7), 1, "Error adding new item");
+	assert_equals(Add(&table, "item9", a + 8), 1, "Error adding new item");
+
+	assert_equals(*(int*)Find(&table, "item7"), 7, "Error finding item");
+	assert_equals(*(int*)Find(&table, "item9"), 9, "Error finding item");
+	assert_equals(*(int*)Find(&table, "item5"), 5, "Error finding item");
+	assert_equals(*(int*)Find(&table, "item1"), 1, "Error finding item");
+	assert_equals(*(int*)Find(&table, "item3"), 3, "Error finding item");
+	assert_equals(Find(&table, "item0"), NULL, "Error identifying non-existance of item");
+
+
+	pass_test;
 }
